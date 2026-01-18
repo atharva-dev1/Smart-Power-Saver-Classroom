@@ -1,5 +1,7 @@
-import { Zap, Cpu, Boxes, CircuitBoard, FileCode, Settings, Users, Leaf, Rocket } from 'lucide-react';
+import { Zap, Cpu, Boxes, CircuitBoard, FileCode, Settings, Users, Leaf, Rocket, Menu } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const navTabs = [
   { label: 'Components', href: '/components', icon: Boxes },
@@ -16,18 +18,18 @@ export function ExpoHeader() {
     <header className="relative py-6 px-8 animate-fade-in">
       {/* Background glow effect */}
       <div className="absolute inset-0 bg-gradient-to-b from-expo-cyan/5 to-transparent pointer-events-none" />
-      
+
       <div className="relative flex flex-col items-center gap-3">
         {/* Main title */}
         <div className="flex items-center gap-4">
           <div className="p-2 rounded-lg bg-expo-cyan/10 border border-expo-cyan/30">
             <Zap className="w-8 h-8 text-expo-cyan animate-pulse-glow" />
           </div>
-          
+
           <h1 className="expo-title text-3xl md:text-4xl lg:text-5xl">
             Smart Power Saver
           </h1>
-          
+
           <div className="p-2 rounded-lg bg-expo-cyan/10 border border-expo-cyan/30">
             <Cpu className="w-8 h-8 text-expo-cyan animate-pulse-glow" />
           </div>
@@ -52,7 +54,8 @@ export function ExpoHeader() {
         </div>
 
         {/* Navigation Tabs */}
-        <nav className="mt-4 flex flex-wrap justify-center gap-2">
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex mt-4 flex-wrap justify-center gap-2">
           {navTabs.map((tab) => (
             <Link
               key={tab.href}
@@ -66,6 +69,31 @@ export function ExpoHeader() {
             </Link>
           ))}
         </nav>
+
+        {/* Mobile Navigation */}
+        <div className="md:hidden absolute top-6 right-8">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="icon" className="bg-slate-800 border-slate-700 text-expo-cyan hover:bg-slate-700">
+                <Menu className="h-6 w-6" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="bg-expo-dark border-expo-border w-64">
+              <div className="flex flex-col gap-4 mt-8">
+                {navTabs.map((tab) => (
+                  <Link
+                    key={tab.href}
+                    to={tab.href}
+                    className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-slate-800/50 text-slate-300 hover:text-expo-cyan transition-colors"
+                  >
+                    <tab.icon className="w-5 h-5" />
+                    <span className="font-mono text-sm">{tab.label}</span>
+                  </Link>
+                ))}
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
 
         {/* Tagline */}
         <p className="font-mono text-xs text-expo-text-muted tracking-wider mt-1">

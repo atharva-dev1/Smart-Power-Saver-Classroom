@@ -1,7 +1,8 @@
-import { Zap, Cpu, Boxes, CircuitBoard, FileCode, Settings, Users, Leaf, Rocket, Menu } from 'lucide-react';
+import { Zap, Cpu, Boxes, CircuitBoard, FileCode, Settings, Users, Leaf, Rocket, Menu, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { useEffect, useState } from 'react';
 
 const navTabs = [
   { label: 'Components', href: '/components', icon: Boxes },
@@ -14,6 +15,30 @@ const navTabs = [
 ];
 
 export function ExpoHeader() {
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+
+  useEffect(() => {
+    const handleBeforeInstallPrompt = (e: any) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    };
+  }, []);
+
+  const handleInstallClick = async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted') {
+        setDeferredPrompt(null);
+      }
+    }
+  };
   return (
     <header className="relative py-6 px-8 animate-fade-in">
       {/* Background glow effect */}
@@ -68,6 +93,17 @@ export function ExpoHeader() {
               </span>
             </Link>
           ))}
+          {deferredPrompt && (
+            <button
+              onClick={handleInstallClick}
+              className="group flex items-center gap-2 px-4 py-2 rounded-lg bg-expo-cyan/10 border border-expo-cyan/50 hover:bg-expo-cyan/20 hover:border-expo-cyan transition-all animate-pulse-glow"
+            >
+              <Download className="w-4 h-4 text-expo-cyan" />
+              <span className="text-sm font-mono text-expo-cyan font-bold">
+                Install App
+              </span>
+            </button>
+          )}
         </nav>
 
         {/* Mobile Navigation */}
@@ -90,6 +126,15 @@ export function ExpoHeader() {
                     <span className="font-mono text-sm">{tab.label}</span>
                   </Link>
                 ))}
+                {deferredPrompt && (
+                  <button
+                    onClick={handleInstallClick}
+                    className="flex items-center gap-3 px-4 py-3 rounded-lg bg-expo-cyan/10 border border-expo-cyan/50 text-expo-cyan hover:bg-expo-cyan/20 transition-all mt-2"
+                  >
+                    <Download className="w-5 h-5" />
+                    <span className="font-mono text-sm font-bold">Install App</span>
+                  </button>
+                )}
               </div>
             </SheetContent>
           </Sheet>

@@ -1,17 +1,23 @@
+import { useState } from 'react';
 import { useSystemState } from '@/hooks/useSystemState';
 import { ExpoHeader } from '@/components/expo/ExpoHeader';
 import { StatusPanel } from '@/components/expo/StatusPanel';
 import { ClassroomScene } from '@/components/expo/ClassroomScene';
 import { SystemFlowPanel } from '@/components/expo/SystemFlowPanel';
 import { ControlPanel } from '@/components/expo/ControlPanel';
+import { WelcomeScreen } from '@/components/expo/WelcomeScreen';
 import { Helmet } from 'react-helmet-async';
 
 const Index = () => {
   const { state, setMode, toggleAutoPlay } = useSystemState();
+  const [showWelcome, setShowWelcome] = useState(true);
 
   return (
     <>
-      <Helmet>
+      <WelcomeScreen onEnter={() => setShowWelcome(false)} />
+
+      {!showWelcome && (
+        <Helmet>
         <title>Smart Power Saver for Classrooms | TECH_EXPO 2K25</title>
         <meta
           name="description"
@@ -76,6 +82,7 @@ const Index = () => {
           </p>
         </footer>
       </div>
+      )}
     </>
   );
 };

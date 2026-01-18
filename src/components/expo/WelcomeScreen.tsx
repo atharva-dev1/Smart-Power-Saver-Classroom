@@ -116,7 +116,7 @@ export function WelcomeScreen({ onEnter }: WelcomeScreenProps) {
                         className="group relative px-8 py-8 text-lg bg-expo-cyan hover:bg-expo-cyan/90 text-slate-950 font-bold tracking-wide rounded-full shadow-[0_0_40px_-10px_rgba(6,182,212,0.6)] hover:shadow-[0_0_60px_-10px_rgba(6,182,212,0.8)] transition-all duration-500 overflow-hidden"
                     >
                         <span className="relative z-10 flex items-center gap-3">
-                            Initializing System
+                            Initialize System...
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </span>
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:animate-shimmer" />

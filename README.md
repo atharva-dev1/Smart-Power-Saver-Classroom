@@ -1,73 +1,79 @@
-# Welcome to your Lovable project
+# ⚡ Smart Power Saver Classroom
 
-## Project info
+**Next-Gen Classroom Energy Automation System**  
+*Designed & Developed by Team PowerSyncers*
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+![Project Banner](https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop)
 
-## How can I edit this code?
+## 🌟 Overview
 
-There are several ways of editing your application.
+**Smart Power Saver** is an innovative IoT-based solution designed to automate and optimize energy consumption in educational institutions. 
 
-**Use Lovable**
+This project features a **fully interactive 3D simulation** that behaves exactly like the physical hardware. It demonstrates how an Arduino-based system detects classroom occupancy to automatically control lights, fans, and AC units, significantly reducing electricity wastage.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## ✨ Key Features
 
-Changes made via Lovable will be committed automatically to this repo.
+-   **🚀 Immersive 3D Simulation**: A realistic classroom environment built with Three.js to visualize the system in action.
+-   **👁️ Smart Occupancy Detection**: Simulates PIR sensors detecting human presence to trigger automation.
+-   **⚡ Automated Control Logic**: 
+    -   **Occupied**: Instantly turns ON appliances.
+    -   **Empty**: Initiates a countdown and cuts power automatically to save energy.
+-   **🎮 Manual Override Mode**: Allows teachers/admins to bypass the sensor for manual control.
+-   **📊 Real-time Status Panel**: Live monitoring of relays, sensors, and calculated energy efficiency estimates.
+-   **📱 Mobile Responsive & PWA**: Fully optimized for phones/tablets and installable as a native Android app.
 
-**Use your preferred IDE**
+## 🛠️ Tech Stack
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+-   **Frontend Framework**: React.js (Vite)
+-   **Styling Engine**: Tailwind CSS
+-   **3D Graphics**: React Three Fiber (Three.js)
+-   **UI Components**: Shadcn UI & Lucide Icons
+-   **Deployment**: Vercel
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🚀 Getting Started
 
-Follow these steps:
+### Prerequisites
+-   Node.js (v16 or higher)
+-   npm (Node Package Manager)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Installation
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+1.  **Clone the repository**
+    ```bash
+    git clone [https://github.com/your-username/smart-power-saver.git](https://github.com/your-username/smart-power-saver.git)
+    cd smart-power-saver
+    ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+3.  **Run the local server**
+    ```bash
+    npm run dev
+    ```
+    Open `http://localhost:8080` to view the app.
 
-**Edit a file directly in GitHub**
+## 📖 How to Use
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1.  **Initialize System**: Click the start button on the landing page to enter the dashboard.
+2.  **Test Modes**:
+    -   **Occupied Mode**: Simulates students entering. Watch the relay click and lights turn on.
+    -   **Empty Mode**: Simulates everyone leaving. The system waits (timeout) before saving power.
+    -   **Auto-Play**: Sit back and watch the system demonstrate its capabilities automatically.
+3.  **Install App**: On mobile devices, use the "Install App" button in the menu to add it to your home screen.
 
-**Use GitHub Codespaces**
+## 👥 Team PowerSyncers
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Built with ❤️ for **TECH_EXPO 2K25** at **PSIT_CHE**.
 
-## What technologies are used for this project?
+-   **Atharva Sharma** - Full Stack Developer & UI/UX Design [Project Lead]
+-   **[Aryan Sachan]** - [Hardware Design]
+-   **[Ashwin Jauhary]** - [Software Developer]
+-   **[Aviral Mishra]** - [Documentation and Research]
+-   **[Arpit Bajpai]** - [Documentation And Research]
 
-This project is built with:
+## 📄 License
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This project is open-source and available under the [MIT License](LICENSE).
